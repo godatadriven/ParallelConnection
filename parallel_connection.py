@@ -38,7 +38,7 @@ class ParallelConnection(object):
             results[index] = cursor.fetchall()
         self._do_parallel(do_work)
 
-        return list(chain(*[rs for rs in results]))
+        return list(chain(*results))
 
     def mogrify(self, q, *args, **kwargs):
         return self.cursors[0].mogrify(q, *args, **kwargs)

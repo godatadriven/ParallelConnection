@@ -28,9 +28,9 @@ class ParallelConnection(object):
             results[index] = cursor.fetchone()
         self._do_parallel(do_work)
 
-        results_values = filter(is_not_none, results)
-        if results_values:
-            return list(chain(results_values))[0]
+        results = filter(is_not_none, results)
+        if results:
+            return results[0]
 
     def fetchall(self):
         results = [None] * len(self.cursors)

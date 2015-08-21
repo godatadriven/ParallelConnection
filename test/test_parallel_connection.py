@@ -1,5 +1,6 @@
 from unittest import TestCase
-from parallel_connection import ParallelConnection
+from parallel_connection.parallel_connection import ParallelConnection
+
 
 class Mock(object):
     def __init__(self):
@@ -16,6 +17,7 @@ class Mock(object):
 
         assert nr == 1, nr
 
+
 class FakeCursor(Mock):
 
     def execute(self, *args, **kwargs):
@@ -23,17 +25,18 @@ class FakeCursor(Mock):
 
     def fetchone(self, *args, **kwargs):
         self.register_call('fetchone', args, kwargs)
-        return {1:'a', 2 :'b'}
+        return {1: 'a', 2: 'b'}
 
     def fetchall(self, *args, **kwargs):
         self.register_call('fetchall', args, kwargs)
-        return [{1:'a', 2:'b'}]
+        return [{1: 'a', 2: 'b'}]
 
     def close(self, *args, **kwargs):
         self.register_call('close', args, kwargs)
 
     def mogrify(self, *args, **kwargs):
         self.register_call('mogrify', args, kwargs)
+
 
 class FakeConnection(Mock):
     def cursor(self, *args, **kwargs):
@@ -42,6 +45,7 @@ class FakeConnection(Mock):
 
     def commit(self, *args, **kwargs):
         self.register_call('commit', args, kwargs)
+
 
 class PCTestCase(TestCase):
 
@@ -68,7 +72,7 @@ class PCTestCase(TestCase):
         self.pc.execute("hello world", 42)
         results = self.pc.fetchone()
 
-        self.assertEqual(results, {1:'a', 2 :'b'})
+        self.assertEqual(results, {1: 'a', 2: 'b'})
 
         for cursor in self.pc.cursors:
             cursor.assert_called_once_with("execute", "hello world", 42)
@@ -79,7 +83,7 @@ class PCTestCase(TestCase):
         self.pc.execute("hello world", 42)
         results = self.pc.fetchall()
 
-        self.assertEqual(results, [{1:'a', 2:'b'}, {1:'a', 2:'b'}])
+        self.assertEqual(results, [{1: 'a', 2: 'b'}, {1: 'a', 2: 'b'}])
 
         for cursor in self.pc.cursors:
             cursor.assert_called_once_with("execute", "hello world", 42)

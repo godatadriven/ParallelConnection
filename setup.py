@@ -13,13 +13,13 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the relevant file
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
     name='parallel_connection',
 
-    version='0.0.1',
+    version='0.1.1',
 
     description='A package to query Postgres databases in parallel',
     long_description=long_description,
@@ -43,7 +43,7 @@ setup(
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Database Tools',
+        'Topic :: Database :: Front-Ends',
 
         # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: Apache Software License',

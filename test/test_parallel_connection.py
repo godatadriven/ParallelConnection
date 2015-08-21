@@ -1,5 +1,5 @@
 from unittest import TestCase
-from parallel_connection.parallel_connection import ParallelConnection
+from parallel_connection import ParallelConnection
 
 
 class Mock(object):

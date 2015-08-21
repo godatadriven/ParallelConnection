@@ -105,3 +105,10 @@ But feel to see if it works, and fix it plus submitting a PR if it doesn't.
 
 **A.** We trust you are savvy enough to do that by yourself before ingestion. We could help you with
 that though, just drop [us](mailto:signal@godatadriven.com) a line.
+
+---
+
+**Q.** I want to know more!
+
+**A.** That's technically not a question, but you can begin by watching Niels present the project
+at PyData Paris 2015. It's on [Youtube](https://www.youtube.com/watch?v=g0eNQSzIbpQ).

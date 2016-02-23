@@ -28,7 +28,7 @@ class ParallelConnection(object):
             results[index] = cursor.fetchone()
         self._do_parallel(do_work)
 
-        results = filter(is_not_none, results)
+        results = list(filter(is_not_none, results))
         if results:
             return results[0]
 
@@ -72,7 +72,7 @@ class ParallelConnection(object):
 def is_not_none(dict_or_tuple):
     if dict_or_tuple:
         if isinstance(dict_or_tuple, dict):
-            if all(r is None for r in dict_or_tuple.itervalues()):
+            if all(r is None for r in dict_or_tuple.values()):
                 return False
         else:
             if all(r is None for r in dict_or_tuple):

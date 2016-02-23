@@ -19,13 +19,13 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='parallel_connection',
 
-    version='0.1.1',
+    version='0.1.2',
 
     description='A package to query Postgres databases in parallel',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/godatadriven/parallel_connection',
+    url='https://github.com/godatadriven/ParallelConnection',
 
     # Author details
     author='Niels Zeilemaker, Giovanni Lanzani',
@@ -57,6 +57,7 @@ setup(
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5'
     ],
 
     # What does your project relate to?
